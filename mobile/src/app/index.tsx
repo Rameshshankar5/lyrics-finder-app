@@ -61,9 +61,9 @@ export default function HomeScreen() {
     >
       <LinearGradient
         colors={[
-          "rgba(10,15,35,0.70)",
-          "rgba(18,30,70,0.55)",
-          "rgba(8,10,20,0.75)",
+          "rgba(10,15,35,0.72)",
+          "rgba(18,30,70,0.52)",
+          "rgba(8,10,20,0.78)",
         ]}
         style={styles.overlay}
       >
@@ -79,7 +79,7 @@ export default function HomeScreen() {
               <Text style={styles.logo}>🎵</Text>
               <Text style={styles.title}>Lyrics Dreamer</Text>
               <Text style={styles.subtitle}>
-                Search your favorite song lyrics with a glassy music vibe
+                Search your favorite song lyrics with a liquid glass feel
               </Text>
             </BlurView>
 
@@ -102,20 +102,25 @@ export default function HomeScreen() {
                 onChangeText={setArtistInput}
               />
 
-              <TouchableOpacity style={styles.searchButton} onPress={searchLyrics}>
-                <LinearGradient
-                  colors={["rgba(120,180,255,0.95)", "rgba(50,110,255,0.92)"]}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                  style={styles.searchButtonInner}
-                >
-                  <Text style={styles.searchButtonText}>Search Lyrics</Text>
-                </LinearGradient>
-              </TouchableOpacity>
+              <View style={styles.buttonRow}>
+                <TouchableOpacity style={styles.glassButton} onPress={searchLyrics}>
+                  <LinearGradient
+                    colors={["#6ea8ff", "#3b82f6"]}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.glassButtonInner}
+                  >
+                    <Text style={styles.buttonText}>Search</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.clearButton} onPress={clearAll}>
-                <Text style={styles.clearButtonText}>Clear</Text>
-              </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.clearGlassButton}
+                  onPress={clearAll}
+                >
+                  <Text style={styles.clearText}>Clear</Text>
+                </TouchableOpacity>
+              </View>
             </BlurView>
 
             {loading && (
@@ -182,7 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 30,
     paddingHorizontal: 22,
     alignItems: "center",
-    marginBottom: 20,
+    marginBottom: 50,
     overflow: "hidden",
     borderWidth: 1,
     borderColor: "rgba(255,255,255,0.18)",
@@ -211,18 +216,19 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   searchCard: {
-    borderRadius: 28,
+    borderRadius: 30,
     padding: 18,
     marginBottom: 20,
+    marginTop: -40,
     overflow: "hidden",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.18)",
+    borderColor: "rgba(255,255,255,0.25)",
     backgroundColor: "rgba(255,255,255,0.08)",
-    shadowColor: "#9ec5ff",
-    shadowOpacity: 0.18,
-    shadowRadius: 22,
+    shadowColor: "#6ea8ff",
+    shadowOpacity: 0.4,
+    shadowRadius: 25,
     shadowOffset: { width: 0, height: 10 },
-    elevation: 8,
+    elevation: 12,
   },
   label: {
     fontSize: 14,
@@ -234,17 +240,26 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "rgba(255,255,255,0.12)",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.16)",
-    borderRadius: 18,
-    paddingHorizontal: 15,
+    borderColor: "rgba(255,255,255,0.25)",
+    borderRadius: 20,
+    paddingHorizontal: 16,
     paddingVertical: 14,
     fontSize: 16,
     color: "#FFFFFF",
-    marginBottom: 10,
+    marginBottom: 12,
+    shadowColor: "#7ab4ff",
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 5 },
   },
-  searchButton: {
+  buttonRow: {
+    flexDirection: "row",
+    gap: 10,
     marginTop: 10,
-    borderRadius: 18,
+  },
+  glassButton: {
+    flex: 1,
+    borderRadius: 25,
     overflow: "hidden",
     shadowColor: "#70aaff",
     shadowOpacity: 0.35,
@@ -252,30 +267,30 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 8 },
     elevation: 8,
   },
-  searchButtonInner: {
+  glassButtonInner: {
     paddingVertical: 15,
     alignItems: "center",
-    borderRadius: 18,
+    borderRadius: 25,
   },
-  searchButtonText: {
-    color: "#FFFFFF",
-    fontSize: 16,
+  buttonText: {
+    color: "#fff",
     fontWeight: "800",
-    letterSpacing: 0.4,
+    fontSize: 16,
+    letterSpacing: 0.3,
   },
-  clearButton: {
-    marginTop: 10,
+  clearGlassButton: {
+    flex: 1,
+    borderRadius: 25,
     backgroundColor: "rgba(255,255,255,0.12)",
-    paddingVertical: 14,
-    borderRadius: 18,
+    justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
-    borderColor: "rgba(255,255,255,0.12)",
+    borderColor: "rgba(255,255,255,0.2)",
   },
-  clearButtonText: {
-    color: "#FFFFFF",
-    fontSize: 15,
+  clearText: {
+    color: "#fff",
     fontWeight: "700",
+    fontSize: 15,
   },
   infoCard: {
     borderRadius: 28,
