@@ -27,8 +27,8 @@ app.get("/api/lyrics", async (req, res) => {
     const response = await axios.get("https://lrclib.net/api/search", {
       params: { q },
       headers: {
-        "User-Agent": "LyricsFinderApp/1.0"
-      }
+        "User-Agent": "LyricsFinderApp/1.0",
+      },
     });
 
     const results = response.data || [];
@@ -43,7 +43,7 @@ app.get("/api/lyrics", async (req, res) => {
       title: first.trackName || track,
       artist: first.artistName || artist || "",
       album: first.albumName || "",
-      lyrics: first.plainLyrics || "Lyrics not available"
+      lyrics: first.plainLyrics || "Lyrics not available",
     });
   } catch (error) {
     console.error("Lyrics API error:", error.message);
@@ -52,5 +52,5 @@ app.get("/api/lyrics", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
