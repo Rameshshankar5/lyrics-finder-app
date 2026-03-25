@@ -22,8 +22,7 @@ export default function HomeScreen() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
 
-  const BASE_URL = "http://192.168.1.115:5000";
-
+const BASE_URL = "https://lyrics-finder-app-production.up.railway.app";
   const searchLyrics = async () => {
     if (!track.trim()) {
       Alert.alert("Missing song name", "Please enter a song name.");
